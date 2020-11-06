@@ -1,6 +1,10 @@
-﻿using Nava.Api.Model;
+﻿using Microsoft.EntityFrameworkCore;
+using Nava.Api.Model;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
 namespace Nava.Api.Repository
 {
@@ -9,12 +13,16 @@ namespace Nava.Api.Repository
     /// </summary>
     public class VendaRepository : RepositoryBase<Venda>, IVendaRepository
     {
+        private readonly DatabaseContext context;
+
+
         /// <summary>
         /// Construtor do Venda Repository
         /// </summary>
         public VendaRepository(DatabaseContext context)
             : base(context, context.Vendas)
         {
+            this.context = context;
         }
 
         /// <summary>
@@ -28,6 +36,15 @@ namespace Nava.Api.Repository
             {
                 throw new Exception("Não foi cadastrado nenhum produto para a venda.");
             }
+        }
+
+        /// <summary>
+        /// GetAll
+        /// </summary>
+        /// <returns></returns>
+        public override Task<List<Venda>> GetAll()
+        {
+            return context.Vendas.Include(x => x.Items).ToListAsync();
         }
     }    
 }

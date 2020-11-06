@@ -408,6 +408,12 @@
             </summary>
             <param name="entity"></param>
         </member>
+        <member name="M:Nava.Api.Repository.VendaRepository.GetAll">
+            <summary>
+            GetAll
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Nava.Api.Repository.VendedorRepository">
             <summary>
             VendedorRepository

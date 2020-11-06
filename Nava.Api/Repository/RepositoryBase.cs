@@ -48,7 +48,7 @@ namespace Nava.Api.Repository
         /// <param name="Id"></param>
         /// <returns></returns>
         public virtual ValueTask<Entity> Get(int Id)
-        {
+        {            
             return entities.FindAsync(Id);
         }
 
