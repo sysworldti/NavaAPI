@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Nava.Api.Enums;
 using Nava.Api.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,69 +8,68 @@ using System.Threading.Tasks;
 namespace Nava.Api.Repository
 {
     /// <summary>
-    /// Repositorio de vendas
+    /// VendedorRepository
     /// </summary>
-    public class VendaRepository : IVendaRepository
+    public class VendedorRepository : IVendedorRepository
     {
         private readonly DatabaseContext context;
 
         /// <summary>
-        /// Construtor do Venda Repository
+        /// Construtor do Vendedor Repository
         /// </summary>
-        public VendaRepository(DatabaseContext context)
+        public VendedorRepository(DatabaseContext context)
         {
             this.context = context;
         }
 
         /// <summary>
-        /// Cria uma nova venda
+        /// Cria um novo vendedor
         /// </summary>
-        /// <param name="venda"></param>
-        public Task Create(Venda venda)
+        /// <param name="vendedor"></param>
+        public Task Create(Vendedor vendedor)
         {
-            venda.Status = StatusVenda.AguardandoPagamento;
-            context.Vendas.Add(venda);
+            context.Vendedores.Add(vendedor);
             context.SaveChangesAsync();
             return context.SaveChangesAsync();
         }
 
         /// <summary>
-        /// Recupera uma venda pelo Id
+        /// Recupera um vendedor pelo Id
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public ValueTask<Venda> Get(long Id)
+        public ValueTask<Vendedor> Get(long Id)
         {
-            return context.Vendas.FindAsync(Id);
+            return context.Vendedores.FindAsync(Id);
         }
 
         /// <summary>
-        /// Recupera todas as vendas
+        /// Recupera todos os vendedores
         /// </summary>
         /// <returns></returns>
-        public Task<List<Venda>> GetAll()
+        public Task<List<Vendedor>> GetAll()
         {
-            return context.Vendas.ToListAsync();
+            return context.Vendedores.ToListAsync();
         }
 
         /// <summary>
-        /// Remove uma venda
+        /// Remove um vendedor
         /// </summary>
         /// <param name="venda"></param>
-        public Task Remove(Venda venda)
-        {            
-            context.Vendas.Remove(venda);
+        public Task Remove(Vendedor venda)
+        {
+            context.Vendedores.Remove(venda);
             return context.SaveChangesAsync();
         }
 
         /// <summary>
-        /// Atualiza uma venda
+        /// Atualiza um vendedor
         /// </summary>
-        /// <param name="venda"></param>
-        public Task Update(Venda venda)
+        /// <param name="vendedor"></param>
+        public Task Update(Vendedor vendedor)
         {
-            context.Update(venda);
+            context.Update(vendedor);
             return context.SaveChangesAsync();
         }
-    }    
+    }
 }

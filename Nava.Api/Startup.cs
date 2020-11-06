@@ -59,6 +59,7 @@ namespace Nava.Api
 
             services.AddDbContext<DatabaseContext>(opt => opt.UseInMemoryDatabase("NavaDB"));
             services.AddScoped<IVendaRepository, VendaRepository>();
+            services.AddScoped<IVendedorRepository, VendedorRepository>();
         }
 
         /// <summary>

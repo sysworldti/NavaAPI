@@ -8,23 +8,23 @@ using System.Threading.Tasks;
 namespace Nava.Api.Controllers
 {
     /// <summary>
-    /// VendaController
+    /// VendedorController
     /// </summary>
-    public class VendaController : ApiControllerBase
+    public class VendedorController : ApiControllerBase
     {
-        private readonly IVendaRepository repository;
+        private readonly IVendedorRepository repository;
 
         /// <summary>
-        /// VendaController
+        /// vendedorController
         /// </summary>
         /// <param name="repository"></param>
-        public VendaController(IVendaRepository repository)
+        public VendedorController(IVendedorRepository repository)
         {
             this.repository = repository;
         }
 
         /// <summary>
-        /// Recupera uma venda pelo Id da entidade
+        /// Recupera um vendedor pelo Id da entidade
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
@@ -44,7 +44,7 @@ namespace Nava.Api.Controllers
         }
 
         /// <summary>
-        /// Recupera todas as Vendas
+        /// Recupera todos os vendedores
         /// </summary>
         /// <returns></returns>
         [HttpGet("GetAll")]
@@ -66,19 +66,19 @@ namespace Nava.Api.Controllers
         }
 
         /// <summary>
-        /// Cria uma nova venda no sistema
+        /// Cria um novo vendedor no sistema
         /// </summary>
-        /// <param name="venda"></param>
+        /// <param name="vendedor"></param>
         /// <returns></returns>
         [HttpPost("Create")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Create([FromBody] Venda venda)
+        public async Task<IActionResult> Create([FromBody] Vendedor vendedor)
         {
             try
             {
-                await repository.Create(venda);
-                return CreatedAtAction("Create", venda);
+                await repository.Create(vendedor);
+                return CreatedAtAction("Create", vendedor);
             }
             catch (Exception e)
             {
@@ -87,19 +87,19 @@ namespace Nava.Api.Controllers
         }
 
         /// <summary>
-        /// Atualiza uma venda
+        /// Atualiza um vendedor
         /// </summary>
-        /// <param name="venda"></param>
+        /// <param name="vendedor"></param>
         /// <returns></returns>
         [HttpPut("Update")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update([FromBody] Venda venda)
+        public async Task<IActionResult> Update([FromBody] Vendedor vendedor)
         {
             try
             {
-                await repository.Update(venda);
-                return Ok(venda);
+                await repository.Update(vendedor);
+                return Ok(vendedor);
             }
             catch (Exception e)
             {
@@ -108,7 +108,7 @@ namespace Nava.Api.Controllers
         }
 
         /// <summary>
-        /// Remove uma venda pelo Id
+        /// Remove um vendedor pelo Id
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
@@ -118,44 +118,18 @@ namespace Nava.Api.Controllers
         {
             try
             {
-                var venda = await repository.Get(Id);
-                if (venda == null)
+                var vendedor = await repository.Get(Id);
+                if (vendedor == null)
                 {
-                    throw new Exception("Venda não encontrada!");
+                    throw new Exception("Vendedor não encontrada!");
                 }
 
-                await repository.Remove(venda);
+                await repository.Remove(vendedor);
                 return Ok();
             }
             catch (Exception e)
             {
                 return BadRequest(e.Message);
-            }
-        }
-
-        /// <summary>
-        /// Muda o status da venda para pagamento aprovado
-        /// </summary>
-        /// <param name="Id"></param>
-        /// <returns></returns>
-        [HttpPost("PagamentoAprovado/{Id:long}")]
-        public async Task<IActionResult> PagamentoAprovado(long Id)
-        {
-            try
-            {
-                var venda = await repository.Get(Id);
-                if (venda == null)
-                {
-                    throw new Exception("Venda não encontrada!");
-                }
-
-                venda.Status = Enums.StatusVenda.PagamentoAprovado;
-                await repository.Update(venda);
-                return Ok("Pagamento aprovado com sucesso!");
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e);
             }
         }
     }
