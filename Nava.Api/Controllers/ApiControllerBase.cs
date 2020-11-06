@@ -120,14 +120,14 @@ namespace Nava.Api.Controllers
         {
             try
             {
-                var venda = await repository.Get(Id);
-                if (venda == null)
+                var entity = await repository.Get(Id);
+                if (entity == null)
                 {
-                    throw new Exception("Venda não encontrada!");
+                    throw new Exception($"Registro não foi encontrado pelo Id: {Id}!");
                 }
 
-                await repository.Remove(venda);
-                return Ok();
+                await repository.Remove(entity);
+                return Ok("Registro removido com sucesso!");
             }
             catch (Exception e)
             {
