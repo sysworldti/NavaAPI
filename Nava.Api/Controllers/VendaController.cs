@@ -27,7 +27,7 @@ namespace Nava.Api.Controllers
         /// <param name="Id"></param>
         /// <param name="service"></param>
         /// <returns></returns>
-        [HttpPost("PagamentoAprovado/{Id}")]
+        [HttpPut("PagamentoAprovado/{Id}")]
         public async Task<IActionResult> PagamentoAprovado(int Id, [FromServices] IVendaService service)
         {
             try
@@ -47,7 +47,7 @@ namespace Nava.Api.Controllers
         /// <param name="Id"></param>
         /// <param name="service"></param>
         /// <returns></returns>
-        [HttpPost("CancelarVenda/{Id}")]
+        [HttpPut("CancelarVenda/{Id}")]
         public async Task<IActionResult> CancelarVenda(int Id, [FromServices] IVendaService service)
         {
             try
@@ -67,7 +67,7 @@ namespace Nava.Api.Controllers
         /// <param name="Id"></param>
         /// <param name="service"></param>
         /// <returns></returns>
-        [HttpPost("EnviarVendaParaTransportadora/{Id}")]
+        [HttpPut("EnviarVendaParaTransportadora/{Id}")]
         public async Task<IActionResult> EnviarVendaParaTransportadora(int Id, [FromServices] IVendaService service)
         {
             try
@@ -87,7 +87,7 @@ namespace Nava.Api.Controllers
         /// <param name="Id"></param>
         /// <param name="service"></param>
         /// <returns></returns>
-        [HttpPost("TransportadoraEntregarVenda/{Id}")]
+        [HttpPut("TransportadoraEntregarVenda/{Id}")]
         public async Task<IActionResult> TransportadoraEntregarVenda(int Id, [FromServices] IVendaService service)
         {
             try
