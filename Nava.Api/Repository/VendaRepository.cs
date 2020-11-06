@@ -1,4 +1,6 @@
 ﻿using Nava.Api.Model;
+using System;
+using System.Linq;
 
 namespace Nava.Api.Repository
 {
@@ -22,6 +24,10 @@ namespace Nava.Api.Repository
         protected override void DoBeforeCreate(Venda entity)
         {
             entity.Status = Enums.StatusVenda.AguardandoPagamento;
+            if (entity.Items == null || !entity.Items.Any())
+            {
+                throw new Exception("Não foi cadastrado nenhum produto para a venda.");
+            }
         }
     }    
 }
