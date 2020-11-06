@@ -21,9 +21,7 @@ namespace Nava.Api
         /// OnModelCreating
         /// </summary>
         /// <param name="modelBuilder"></param>
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder) { }
 
         /// <summary>
         /// DbSet de Vendas

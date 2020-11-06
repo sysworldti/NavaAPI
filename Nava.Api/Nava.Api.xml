@@ -279,32 +279,32 @@
         </member>
         <member name="M:Nava.Api.Repository.IRepositoryBase`1.Create(`0)">
             <summary>
-            Adiciona uma nova venda
+            Adiciona um novo registro na entidade
             </summary>
             <param name="entity"></param>
         </member>
         <member name="M:Nava.Api.Repository.IRepositoryBase`1.Update(`0)">
             <summary>
-            Atualiza uma Venda existente
+            Atualiza a entidade passada
             </summary>
             <param name="entity"></param>
         </member>
         <member name="M:Nava.Api.Repository.IRepositoryBase`1.Remove(`0)">
             <summary>
-            Remove uma determinada Venda
+            Remove a entidade do banco de dados
             </summary>
             <param name="entity"></param>
         </member>
         <member name="M:Nava.Api.Repository.IRepositoryBase`1.Get(System.Int64)">
             <summary>
-            Recupera uma venda pelo Id
+            Recupera uma entidade pelo Id
             </summary>
             <param name="Id"></param>
             <returns></returns>
         </member>
         <member name="M:Nava.Api.Repository.IRepositoryBase`1.GetAll">
             <summary>
-            Recupera uma lista de  vendas
+            Recupera todas as entidades do banco de dados
             </summary>
             <returns></returns>
         </member>
@@ -331,11 +331,17 @@
             <param name="context"></param>
             <param name="entities"></param>
         </member>
+        <member name="M:Nava.Api.Repository.RepositoryBase`1.DoBeforeCreate(`0)">
+            <summary>
+            Metodo para ser sobrecarregado...
+            </summary>
+            <param name="entity"></param>
+        </member>
         <member name="M:Nava.Api.Repository.RepositoryBase`1.Create(`0)">
             <summary>
             Create
             </summary>
-            <param name="venda"></param>
+            <param name="entity"></param>
         </member>
         <member name="M:Nava.Api.Repository.RepositoryBase`1.Get(System.Int64)">
             <summary>
@@ -350,9 +356,21 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Nava.Api.Repository.RepositoryBase`1.DoBeforeRemove(`0)">
+            <summary>
+            Metodo para ser sobrecarregado...
+            </summary>
+            <param name="entity"></param>
+        </member>
         <member name="M:Nava.Api.Repository.RepositoryBase`1.Remove(`0)">
             <summary>
             Remove
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:Nava.Api.Repository.RepositoryBase`1.DoBeforeUpdate(`0)">
+            <summary>
+            Metodo para ser sobrecarregado...
             </summary>
             <param name="entity"></param>
         </member>
@@ -371,6 +389,12 @@
             <summary>
             Construtor do Venda Repository
             </summary>
+        </member>
+        <member name="M:Nava.Api.Repository.VendaRepository.DoBeforeCreate(Nava.Api.Model.Venda)">
+            <summary>
+            Força a venda iniciar com o status de aguardando pagamento.
+            </summary>
+            <param name="entity"></param>
         </member>
         <member name="T:Nava.Api.Repository.VendedorRepository">
             <summary>

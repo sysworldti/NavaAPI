@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Nava.Api.Repository
@@ -12,32 +10,32 @@ namespace Nava.Api.Repository
     public interface IRepositoryBase<Entity>
     {
         /// <summary>
-        /// Adiciona uma nova venda
+        /// Adiciona um novo registro na entidade
         /// </summary>
         /// <param name="entity"></param>
         Task Create(Entity entity);
 
         /// <summary>
-        /// Atualiza uma Venda existente
+        /// Atualiza a entidade passada
         /// </summary>
         /// <param name="entity"></param>
         Task Update(Entity entity);
 
         /// <summary>
-        /// Remove uma determinada Venda
+        /// Remove a entidade do banco de dados
         /// </summary>
         /// <param name="entity"></param>
         Task Remove(Entity entity);
 
         /// <summary>
-        /// Recupera uma venda pelo Id
+        /// Recupera uma entidade pelo Id
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
         ValueTask<Entity> Get(long Id);
 
         /// <summary>
-        /// Recupera uma lista de  vendas
+        /// Recupera todas as entidades do banco de dados
         /// </summary>
         /// <returns></returns>
         Task<List<Entity>> GetAll();

@@ -1,7 +1,4 @@
-﻿using Nava.Api.Enums;
-using Nava.Api.Model;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using Nava.Api.Model;
 
 namespace Nava.Api.Repository
 {
