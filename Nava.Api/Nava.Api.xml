@@ -15,7 +15,7 @@
             </summary>
             <param name="repository"></param>
         </member>
-        <member name="M:Nava.Api.Controllers.ApiControllerBase`2.Get(System.Int64)">
+        <member name="M:Nava.Api.Controllers.ApiControllerBase`2.Get(System.Int32)">
             <summary>
             Recupera um registro no banco de dados pelo seu Id
             </summary>
@@ -42,7 +42,7 @@
             <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:Nava.Api.Controllers.ApiControllerBase`2.Remove(System.Int64)">
+        <member name="M:Nava.Api.Controllers.ApiControllerBase`2.Remove(System.Int32)">
             <summary>
             Remove o registro do bando de dados pelo Id
             </summary>
@@ -60,11 +60,36 @@
             </summary>
             <param name="repository"></param>
         </member>
-        <member name="M:Nava.Api.Controllers.VendaController.PagamentoAprovado(System.Int64)">
+        <member name="M:Nava.Api.Controllers.VendaController.PagamentoAprovado(System.Int32,Nava.Api.Service.IVendaService)">
             <summary>
             Muda o status da venda para pagamento aprovado
             </summary>
             <param name="Id"></param>
+            <param name="service"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nava.Api.Controllers.VendaController.CancelarVenda(System.Int32,Nava.Api.Service.IVendaService)">
+            <summary>
+            Permite que o usuário cancele uma venda
+            </summary>
+            <param name="Id"></param>
+            <param name="service"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nava.Api.Controllers.VendaController.EnviarVendaParaTransportadora(System.Int32,Nava.Api.Service.IVendaService)">
+            <summary>
+            Permite que o usuário enviar venda para a transportadora
+            </summary>
+            <param name="Id"></param>
+            <param name="service"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nava.Api.Controllers.VendaController.TransportadoraEntregarVenda(System.Int32,Nava.Api.Service.IVendaService)">
+            <summary>
+            Permite que o usuário informe que a transportadora fez a entrega da mercadoria
+            </summary>
+            <param name="Id"></param>
+            <param name="service"></param>
             <returns></returns>
         </member>
         <member name="T:Nava.Api.Controllers.VendedorController">
@@ -282,7 +307,7 @@
             </summary>
             <param name="entity"></param>
         </member>
-        <member name="M:Nava.Api.Repository.IRepositoryBase`1.Get(System.Int64)">
+        <member name="M:Nava.Api.Repository.IRepositoryBase`1.Get(System.Int32)">
             <summary>
             Recupera uma entidade pelo Id
             </summary>
@@ -330,7 +355,7 @@
             </summary>
             <param name="entity"></param>
         </member>
-        <member name="M:Nava.Api.Repository.RepositoryBase`1.Get(System.Int64)">
+        <member name="M:Nava.Api.Repository.RepositoryBase`1.Get(System.Int32)">
             <summary>
             Get
             </summary>
@@ -392,6 +417,78 @@
             <summary>
             Construtor do Vendedor Repository
             </summary>
+        </member>
+        <member name="T:Nava.Api.Service.IVendaService">
+            <summary>
+            IVendaService
+            </summary>
+        </member>
+        <member name="M:Nava.Api.Service.IVendaService.PagamentoAprovado(System.Int32)">
+            <summary>
+            Serviço para informar que o pagamento da venda foi aprovado...
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nava.Api.Service.IVendaService.CancelarVenda(System.Int32)">
+            <summary>
+            Serviço para informar que a venda foi cancelada...
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nava.Api.Service.IVendaService.EnviarVendaParaTransportadora(System.Int32)">
+            <summary>
+            Serviço para mudar o status da venda para enviado para a transportadora...
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nava.Api.Service.IVendaService.TransportadoraEntregarVenda(System.Int32)">
+            <summary>
+            Serviço para mudar o status da venda para entregue...
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Nava.Api.Service.VendaService">
+            <summary>
+            VendaService
+            </summary>
+        </member>
+        <member name="M:Nava.Api.Service.VendaService.#ctor(Nava.Api.Repository.IVendaRepository)">
+            <summary>
+            VendaService
+            </summary>
+            <param name="repository"></param>
+        </member>
+        <member name="M:Nava.Api.Service.VendaService.PagamentoAprovado(System.Int32)">
+            <summary>
+            Muda o status da venda para pagamento aprovado...
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nava.Api.Service.VendaService.CancelarVenda(System.Int32)">
+            <summary>
+            Muda o status da venda para cancelada
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nava.Api.Service.VendaService.EnviarVendaParaTransportadora(System.Int32)">
+            <summary>
+            Muda o status da venda para enviado para transportadora 
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nava.Api.Service.VendaService.TransportadoraEntregarVenda(System.Int32)">
+            <summary>
+            Muda o status da venda para entregue ao consumidor final
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
         </member>
         <member name="T:Nava.Api.Startup">
             <summary>

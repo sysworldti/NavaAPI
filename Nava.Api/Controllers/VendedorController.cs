@@ -8,8 +8,6 @@ namespace Nava.Api.Controllers
     /// </summary>
     public class VendedorController : ApiControllerBase<IVendedorRepository, Vendedor>
     {
-        private readonly IVendedorRepository repository;
-
         /// <summary>
         /// vendedorController
         /// </summary>

@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.PlatformAbstractions;
 using Microsoft.OpenApi.Models;
 using Nava.Api.Repository;
+using Nava.Api.Service;
 using System;
 using System.IO;
 
@@ -60,6 +61,7 @@ namespace Nava.Api
             services.AddDbContext<DatabaseContext>(opt => opt.UseInMemoryDatabase("NavaDB"));
             services.AddScoped<IVendaRepository, VendaRepository>();
             services.AddScoped<IVendedorRepository, VendedorRepository>();
+            services.AddScoped<IVendaService, VendaService>();
         }
 
         /// <summary>

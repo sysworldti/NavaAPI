@@ -30,10 +30,10 @@ namespace Nava.Api.Controllers
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        [HttpGet("Get/{Id:long}")]
+        [HttpGet("Get/{Id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Get(long Id)
+        public async Task<IActionResult> Get(int Id)
         {
             try
             {
@@ -114,9 +114,9 @@ namespace Nava.Api.Controllers
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        [HttpDelete("Remove/{Id:long}")]
+        [HttpDelete("Remove/{Id}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Remove(long Id)
+        public async Task<IActionResult> Remove(int Id)
         {
             try
             {
