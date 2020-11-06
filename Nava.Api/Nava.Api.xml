@@ -1,0 +1,250 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Nava.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Nava.Api.Controllers.VendaController">
+            <summary>
+            VendaController
+            </summary>
+        </member>
+        <member name="M:Nava.Api.Controllers.VendaController.#ctor(Nava.Api.Repository.IVendaRepository)">
+            <summary>
+            VendaController
+            </summary>
+            <param name="repository"></param>
+        </member>
+        <member name="M:Nava.Api.Controllers.VendaController.Get(System.Int64)">
+            <summary>
+            Recupera uma venda pelo Id da entidade
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nava.Api.Controllers.VendaController.GetAll">
+            <summary>
+            Recupera todas as Vendas
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Nava.Api.Controllers.VendaController.Create(Nava.Api.Model.Venda)">
+            <summary>
+            Cria uma nova venda no sistema
+            </summary>
+            <param name="venda"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nava.Api.Controllers.VendaController.Update(Nava.Api.Model.Venda)">
+            <summary>
+            Atualiza uma venda
+            </summary>
+            <param name="venda"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nava.Api.Controllers.VendaController.Remove(System.Int64)">
+            <summary>
+            Remove uma venda pelo Id
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nava.Api.Controllers.VendaController.PagamentoAprovado(System.Int64)">
+            <summary>
+            Muda o status da venda para pagamento aprovado
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Nava.Api.DatabaseContext">
+            <summary>
+            DatabaseContext
+            </summary>
+        </member>
+        <member name="M:Nava.Api.DatabaseContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Nava.Api.DatabaseContext})">
+            <summary>
+            DatabaseContext
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="P:Nava.Api.DatabaseContext.Vendas">
+            <summary>
+            DbSet de Vendas
+            </summary>
+        </member>
+        <member name="T:Nava.Api.Enums.StatusVenda">
+            <summary>
+            Define os status dade venda
+            </summary>
+        </member>
+        <member name="F:Nava.Api.Enums.StatusVenda.AguardandoPagamento">
+            <summary>
+            Aguardando pagamento
+            </summary>
+        </member>
+        <member name="F:Nava.Api.Enums.StatusVenda.PagamentoAprovado">
+            <summary>
+            Pagamento Aprovado
+            </summary>
+        </member>
+        <member name="F:Nava.Api.Enums.StatusVenda.Cancelado">
+            <summary>
+            Cancelada
+            </summary>
+        </member>
+        <member name="F:Nava.Api.Enums.StatusVenda.EnvioTransportadora">
+            <summary>
+            Enviado para Transportadora
+            </summary>
+        </member>
+        <member name="F:Nava.Api.Enums.StatusVenda.Entregue">
+            <summary>
+            Entregue
+            </summary>
+        </member>
+        <member name="T:Nava.Api.Model.Venda">
+            <summary>
+            Venda
+            </summary>
+        </member>
+        <member name="P:Nava.Api.Model.Venda.Id">
+            <summary>
+            Id da venda
+            </summary>
+        </member>
+        <member name="P:Nava.Api.Model.Venda.Numero">
+            <summary>
+            Número da venda
+            </summary>
+        </member>
+        <member name="P:Nava.Api.Model.Venda.Status">
+            <summary>
+            Status atual da venda
+            </summary>
+        </member>
+        <member name="T:Nava.Api.Program">
+            <summary>
+            Program
+            </summary>
+        </member>
+        <member name="M:Nava.Api.Program.Main(System.String[])">
+            <summary>
+            Main
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Nava.Api.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            CreateHostBuilder
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Nava.Api.Repository.IVendaRepository">
+            <summary>
+            Interface do repositorio de vendas
+            </summary>
+        </member>
+        <member name="M:Nava.Api.Repository.IVendaRepository.Create(Nava.Api.Model.Venda)">
+            <summary>
+            Adiciona uma nova venda
+            </summary>
+            <param name="venda"></param>
+        </member>
+        <member name="M:Nava.Api.Repository.IVendaRepository.Update(Nava.Api.Model.Venda)">
+            <summary>
+            Atualiza uma Venda existente
+            </summary>
+            <param name="venda"></param>
+        </member>
+        <member name="M:Nava.Api.Repository.IVendaRepository.Remove(Nava.Api.Model.Venda)">
+            <summary>
+            Remove uma determinada Venda
+            </summary>
+            <param name="venda"></param>
+        </member>
+        <member name="M:Nava.Api.Repository.IVendaRepository.Get(System.Int64)">
+            <summary>
+            Recupera uma venda pelo Id
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nava.Api.Repository.IVendaRepository.GetAll">
+            <summary>
+            Recupera uma lista de  vendas
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Nava.Api.Repository.VendaRepository">
+            <summary>
+            Repositorio de vendas
+            </summary>
+        </member>
+        <member name="M:Nava.Api.Repository.VendaRepository.#ctor(Nava.Api.DatabaseContext)">
+            <summary>
+            Construtor do Venda Repository
+            </summary>
+        </member>
+        <member name="M:Nava.Api.Repository.VendaRepository.Create(Nava.Api.Model.Venda)">
+            <summary>
+            Cria uma nova venda
+            </summary>
+            <param name="venda"></param>
+        </member>
+        <member name="M:Nava.Api.Repository.VendaRepository.Get(System.Int64)">
+            <summary>
+            Recupera uma venda pelo Id
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nava.Api.Repository.VendaRepository.GetAll">
+            <summary>
+            Recupera todas as vendas
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Nava.Api.Repository.VendaRepository.Remove(Nava.Api.Model.Venda)">
+            <summary>
+            Remove uma venda
+            </summary>
+            <param name="venda"></param>
+        </member>
+        <member name="M:Nava.Api.Repository.VendaRepository.Update(Nava.Api.Model.Venda)">
+            <summary>
+            Atualiza uma venda
+            </summary>
+            <param name="venda"></param>
+        </member>
+        <member name="T:Nava.Api.Startup">
+            <summary>
+            Startup
+            </summary>
+        </member>
+        <member name="M:Nava.Api.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Startup
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:Nava.Api.Startup.Configuration">
+            <summary>
+            Configuration
+            </summary>
+        </member>
+        <member name="M:Nava.Api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            ConfigureServices
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Nava.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Configure
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>
