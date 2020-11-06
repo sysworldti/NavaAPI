@@ -223,11 +223,6 @@
             Quantidade de produto(s) vendido(s)
             </summary>
         </member>
-        <member name="P:Nava.Api.Model.VendaItem.Venda">
-            <summary>
-            Em quam venda esse item está associado
-            </summary>
-        </member>
         <member name="T:Nava.Api.Model.Vendedor">
             <summary>
             Entidade do vendedor
@@ -258,11 +253,6 @@
             Telefone do Vendedor
             </summary>
         </member>
-        <member name="P:Nava.Api.Model.Vendedor.Venda">
-            <summary>
-            Em qual venda esse vendor está participando
-            </summary>
-        </member>
         <member name="T:Nava.Api.Program">
             <summary>
             Program
@@ -281,77 +271,96 @@
             <param name="args"></param>
             <returns></returns>
         </member>
-        <member name="T:Nava.Api.Repository.IVendaRepository">
+        <member name="T:Nava.Api.Repository.IRepositoryBase`1">
             <summary>
-            Interface do repositorio de vendas
+            IRepositoryBase
             </summary>
+            <typeparam name="Entity"></typeparam>
         </member>
-        <member name="M:Nava.Api.Repository.IVendaRepository.Create(Nava.Api.Model.Venda)">
+        <member name="M:Nava.Api.Repository.IRepositoryBase`1.Create(`0)">
             <summary>
             Adiciona uma nova venda
             </summary>
-            <param name="venda"></param>
+            <param name="entity"></param>
         </member>
-        <member name="M:Nava.Api.Repository.IVendaRepository.Update(Nava.Api.Model.Venda)">
+        <member name="M:Nava.Api.Repository.IRepositoryBase`1.Update(`0)">
             <summary>
             Atualiza uma Venda existente
             </summary>
-            <param name="venda"></param>
+            <param name="entity"></param>
         </member>
-        <member name="M:Nava.Api.Repository.IVendaRepository.Remove(Nava.Api.Model.Venda)">
+        <member name="M:Nava.Api.Repository.IRepositoryBase`1.Remove(`0)">
             <summary>
             Remove uma determinada Venda
             </summary>
-            <param name="venda"></param>
+            <param name="entity"></param>
         </member>
-        <member name="M:Nava.Api.Repository.IVendaRepository.Get(System.Int64)">
+        <member name="M:Nava.Api.Repository.IRepositoryBase`1.Get(System.Int64)">
             <summary>
             Recupera uma venda pelo Id
             </summary>
             <param name="Id"></param>
             <returns></returns>
         </member>
-        <member name="M:Nava.Api.Repository.IVendaRepository.GetAll">
+        <member name="M:Nava.Api.Repository.IRepositoryBase`1.GetAll">
             <summary>
             Recupera uma lista de  vendas
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:Nava.Api.Repository.IVendaRepository">
+            <summary>
+            Interface do repositorio de vendas
+            </summary>
         </member>
         <member name="T:Nava.Api.Repository.IVendedorRepository">
             <summary>
             IVendedorRepository
             </summary>
         </member>
-        <member name="M:Nava.Api.Repository.IVendedorRepository.Create(Nava.Api.Model.Vendedor)">
+        <member name="T:Nava.Api.Repository.RepositoryBase`1">
             <summary>
-            Adiciona um novo vendedor
+            RepositoryBase
             </summary>
-            <param name="vendedor"></param>
+            <typeparam name="Entity"></typeparam>
         </member>
-        <member name="M:Nava.Api.Repository.IVendedorRepository.Update(Nava.Api.Model.Vendedor)">
+        <member name="M:Nava.Api.Repository.RepositoryBase`1.#ctor(Nava.Api.DatabaseContext,Microsoft.EntityFrameworkCore.DbSet{`0})">
             <summary>
-            Atualiza um Vendedor existente
+            RepositoryBase
             </summary>
-            <param name="vendedor"></param>
+            <param name="context"></param>
+            <param name="entities"></param>
         </member>
-        <member name="M:Nava.Api.Repository.IVendedorRepository.Remove(Nava.Api.Model.Vendedor)">
+        <member name="M:Nava.Api.Repository.RepositoryBase`1.Create(`0)">
             <summary>
-            Remove um determinado vendedor
+            Create
             </summary>
-            <param name="vendedor"></param>
+            <param name="venda"></param>
         </member>
-        <member name="M:Nava.Api.Repository.IVendedorRepository.Get(System.Int64)">
+        <member name="M:Nava.Api.Repository.RepositoryBase`1.Get(System.Int64)">
             <summary>
-            Recupera um vendedor pelo Id
+            Get
             </summary>
             <param name="Id"></param>
             <returns></returns>
         </member>
-        <member name="M:Nava.Api.Repository.IVendedorRepository.GetAll">
+        <member name="M:Nava.Api.Repository.RepositoryBase`1.GetAll">
             <summary>
-            Recupera uma lista de vendedores
+            GetAll
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:Nava.Api.Repository.RepositoryBase`1.Remove(`0)">
+            <summary>
+            Remove
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:Nava.Api.Repository.RepositoryBase`1.Update(`0)">
+            <summary>
+            Update
+            </summary>
+            <param name="entity"></param>
         </member>
         <member name="T:Nava.Api.Repository.VendaRepository">
             <summary>
@@ -363,37 +372,6 @@
             Construtor do Venda Repository
             </summary>
         </member>
-        <member name="M:Nava.Api.Repository.VendaRepository.Create(Nava.Api.Model.Venda)">
-            <summary>
-            Cria uma nova venda
-            </summary>
-            <param name="venda"></param>
-        </member>
-        <member name="M:Nava.Api.Repository.VendaRepository.Get(System.Int64)">
-            <summary>
-            Recupera uma venda pelo Id
-            </summary>
-            <param name="Id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Nava.Api.Repository.VendaRepository.GetAll">
-            <summary>
-            Recupera todas as vendas
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Nava.Api.Repository.VendaRepository.Remove(Nava.Api.Model.Venda)">
-            <summary>
-            Remove uma venda
-            </summary>
-            <param name="venda"></param>
-        </member>
-        <member name="M:Nava.Api.Repository.VendaRepository.Update(Nava.Api.Model.Venda)">
-            <summary>
-            Atualiza uma venda
-            </summary>
-            <param name="venda"></param>
-        </member>
         <member name="T:Nava.Api.Repository.VendedorRepository">
             <summary>
             VendedorRepository
@@ -403,37 +381,6 @@
             <summary>
             Construtor do Vendedor Repository
             </summary>
-        </member>
-        <member name="M:Nava.Api.Repository.VendedorRepository.Create(Nava.Api.Model.Vendedor)">
-            <summary>
-            Cria um novo vendedor
-            </summary>
-            <param name="vendedor"></param>
-        </member>
-        <member name="M:Nava.Api.Repository.VendedorRepository.Get(System.Int64)">
-            <summary>
-            Recupera um vendedor pelo Id
-            </summary>
-            <param name="Id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Nava.Api.Repository.VendedorRepository.GetAll">
-            <summary>
-            Recupera todos os vendedores
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Nava.Api.Repository.VendedorRepository.Remove(Nava.Api.Model.Vendedor)">
-            <summary>
-            Remove um vendedor
-            </summary>
-            <param name="venda"></param>
-        </member>
-        <member name="M:Nava.Api.Repository.VendedorRepository.Update(Nava.Api.Model.Vendedor)">
-            <summary>
-            Atualiza um vendedor
-            </summary>
-            <param name="vendedor"></param>
         </member>
         <member name="T:Nava.Api.Startup">
             <summary>
