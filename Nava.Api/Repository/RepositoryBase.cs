@@ -38,8 +38,7 @@ namespace Nava.Api.Repository
         public virtual Task Create(Entity entity)
         {
             DoBeforeCreate(entity);
-            entities.Add(entity);
-            context.SaveChangesAsync();
+            entities.Add(entity);            
             return context.SaveChangesAsync();
         }
 
@@ -84,6 +83,7 @@ namespace Nava.Api.Repository
         /// </summary>
         /// <param name="entity"></param>
         protected virtual void DoBeforeUpdate(Entity entity) { }
+
         /// <summary>
         /// Update
         /// </summary>
