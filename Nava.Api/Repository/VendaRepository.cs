@@ -38,6 +38,16 @@ namespace Nava.Api.Repository
         }
 
         /// <summary>
+        /// Get
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public override Task<Venda> Get(int Id)
+        {
+            return context.Vendas.Include(p => p.Items).Where(p => p.Id == Id).FirstOrDefaultAsync();
+        }
+
+        /// <summary>
         /// GetAll
         /// </summary>
         /// <returns></returns>

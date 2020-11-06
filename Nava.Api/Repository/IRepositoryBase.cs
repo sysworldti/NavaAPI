@@ -32,7 +32,7 @@ namespace Nava.Api.Repository
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        ValueTask<Entity> Get(int Id);
+        Task<Entity> Get(int Id);
 
         /// <summary>
         /// Recupera todas as entidades do banco de dados

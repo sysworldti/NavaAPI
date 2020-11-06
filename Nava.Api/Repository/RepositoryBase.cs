@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Nava.Api.Model;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Nava.Api.Repository
@@ -9,7 +11,7 @@ namespace Nava.Api.Repository
     /// </summary>
     /// <typeparam name="Entity"></typeparam>
     public class RepositoryBase<Entity> : IRepositoryBase<Entity>
-        where Entity : class
+        where Entity : EntityBase
     {
         private readonly DatabaseContext context;
         private readonly DbSet<Entity> entities;
@@ -47,9 +49,9 @@ namespace Nava.Api.Repository
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public virtual ValueTask<Entity> Get(int Id)
+        public virtual Task<Entity> Get(int Id)
         {            
-            return entities.FindAsync(Id);
+            return entities.Where(p => p.Id == Id).FirstOrDefaultAsync();
         }
 
         /// <summary>

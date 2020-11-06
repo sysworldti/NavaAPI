@@ -1,18 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Nava.Api.Model
+﻿namespace Nava.Api.Model
 {
     /// <summary>
     /// Entidade do vendedor
     /// </summary>
-    public class Vendedor
+    public class Vendedor : EntityBase
     {
-        /// <summary>
-        /// Identificador
-        /// </summary>
-        [Key]
-        public int Id { get; set; }
-
         /// <summary>
         /// Nome do Vendedor
         /// </summary>

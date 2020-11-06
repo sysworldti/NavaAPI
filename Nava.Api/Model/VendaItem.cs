@@ -1,19 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Nava.Api.Model
 {
     /// <summary>
     /// Itens da Venda
     /// </summary>
-    public class VendaItem
+    public class VendaItem : EntityBase
     {
-        /// <summary>
-        /// Id da tabela de item da venda
-        /// </summary>
-        [Key]
-        public int Id { get; set; }
-
         /// <summary>
         /// Nome do Produto que será vendido
         /// </summary>        

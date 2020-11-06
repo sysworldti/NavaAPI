@@ -1,7 +1,6 @@
 ﻿using Nava.Api.Enums;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Nava.Api.Model
@@ -9,14 +8,8 @@ namespace Nava.Api.Model
     /// <summary>
     /// Venda
     /// </summary>
-    public class Venda
+    public class Venda : EntityBase
     {
-        /// <summary>
-        /// Id da venda
-        /// </summary>
-        [Key]
-        public int Id { get; set; }
-
         /// <summary>
         /// Data de realização da venda
         /// </summary>

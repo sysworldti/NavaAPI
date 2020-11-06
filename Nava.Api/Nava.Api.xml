@@ -165,14 +165,19 @@
             Entregue
             </summary>
         </member>
+        <member name="T:Nava.Api.Model.EntityBase">
+            <summary>
+            Entidade base
+            </summary>
+        </member>
+        <member name="P:Nava.Api.Model.EntityBase.Id">
+            <summary>
+            Primary Key
+            </summary>
+        </member>
         <member name="T:Nava.Api.Model.Venda">
             <summary>
             Venda
-            </summary>
-        </member>
-        <member name="P:Nava.Api.Model.Venda.Id">
-            <summary>
-            Id da venda
             </summary>
         </member>
         <member name="P:Nava.Api.Model.Venda.DataVenda">
@@ -210,11 +215,6 @@
             Itens da Venda
             </summary>
         </member>
-        <member name="P:Nava.Api.Model.VendaItem.Id">
-            <summary>
-            Id da tabela de item da venda
-            </summary>
-        </member>
         <member name="P:Nava.Api.Model.VendaItem.NomeProduto">
             <summary>
             Nome do Produto que será vendido
@@ -238,11 +238,6 @@
         <member name="T:Nava.Api.Model.Vendedor">
             <summary>
             Entidade do vendedor
-            </summary>
-        </member>
-        <member name="P:Nava.Api.Model.Vendedor.Id">
-            <summary>
-            Identificador
             </summary>
         </member>
         <member name="P:Nava.Api.Model.Vendedor.Nome">
@@ -407,6 +402,13 @@
             Força a venda iniciar com o status de aguardando pagamento.
             </summary>
             <param name="entity"></param>
+        </member>
+        <member name="M:Nava.Api.Repository.VendaRepository.Get(System.Int32)">
+            <summary>
+            Get
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
         </member>
         <member name="M:Nava.Api.Repository.VendaRepository.GetAll">
             <summary>
