@@ -1,9 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Nava.Api.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Nava.Api.Model;
 
 namespace Nava.Api.Repository
 {

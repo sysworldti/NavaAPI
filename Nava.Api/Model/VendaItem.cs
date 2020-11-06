@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Nava.Api.Model
 {
@@ -11,7 +12,7 @@ namespace Nava.Api.Model
         /// Id da tabela de item da venda
         /// </summary>
         [Key]
-        public long Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Nome do Produto que será vendido
@@ -22,5 +23,16 @@ namespace Nava.Api.Model
         /// Quantidade de produto(s) vendido(s)
         /// </summary>
         public int Quantidade { get; set; }
+
+        /// <summary>
+        /// Id da Venda
+        /// </summary>
+        public int VendaId { get; set; }
+
+        /// <summary>
+        /// Venda em que o item está participando
+        /// </summary>
+        [ForeignKey("VendaId")]
+        public Venda Venda { get; set; }
     }
 }

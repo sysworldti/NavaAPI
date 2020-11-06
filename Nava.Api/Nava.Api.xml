@@ -4,10 +4,50 @@
         <name>Nava.Api</name>
     </assembly>
     <members>
-        <member name="T:Nava.Api.Controllers.ApiControllerBase">
+        <member name="T:Nava.Api.Controllers.ApiControllerBase`2">
             <summary>
             ApiControllerBase
             </summary>
+        </member>
+        <member name="M:Nava.Api.Controllers.ApiControllerBase`2.#ctor(`0)">
+            <summary>
+            ApiControllerBase
+            </summary>
+            <param name="repository"></param>
+        </member>
+        <member name="M:Nava.Api.Controllers.ApiControllerBase`2.Get(System.Int64)">
+            <summary>
+            Recupera um registro no banco de dados pelo seu Id
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nava.Api.Controllers.ApiControllerBase`2.GetAll">
+            <summary>
+            Recupera recupera todos os registros do banco de dados
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Nava.Api.Controllers.ApiControllerBase`2.Create(`1)">
+            <summary>
+            Cria um novo registro no banco de dados
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nava.Api.Controllers.ApiControllerBase`2.Update(`1)">
+            <summary>
+            Atualiza o registro corrente no banco de dados
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nava.Api.Controllers.ApiControllerBase`2.Remove(System.Int64)">
+            <summary>
+            Remove o registro do bando de dados pelo Id
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
         </member>
         <member name="T:Nava.Api.Controllers.VendaController">
             <summary>
@@ -19,40 +59,6 @@
             VendaController
             </summary>
             <param name="repository"></param>
-        </member>
-        <member name="M:Nava.Api.Controllers.VendaController.Get(System.Int64)">
-            <summary>
-            Recupera uma venda pelo Id da entidade
-            </summary>
-            <param name="Id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Nava.Api.Controllers.VendaController.GetAll">
-            <summary>
-            Recupera todas as Vendas
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Nava.Api.Controllers.VendaController.Create(Nava.Api.Model.Venda)">
-            <summary>
-            Cria uma nova venda no sistema
-            </summary>
-            <param name="venda"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Nava.Api.Controllers.VendaController.Update(Nava.Api.Model.Venda)">
-            <summary>
-            Atualiza uma venda
-            </summary>
-            <param name="venda"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Nava.Api.Controllers.VendaController.Remove(System.Int64)">
-            <summary>
-            Remove uma venda pelo Id
-            </summary>
-            <param name="Id"></param>
-            <returns></returns>
         </member>
         <member name="M:Nava.Api.Controllers.VendaController.PagamentoAprovado(System.Int64)">
             <summary>
@@ -71,40 +77,6 @@
             vendedorController
             </summary>
             <param name="repository"></param>
-        </member>
-        <member name="M:Nava.Api.Controllers.VendedorController.Get(System.Int64)">
-            <summary>
-            Recupera um vendedor pelo Id da entidade
-            </summary>
-            <param name="Id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Nava.Api.Controllers.VendedorController.GetAll">
-            <summary>
-            Recupera todos os vendedores
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Nava.Api.Controllers.VendedorController.Create(Nava.Api.Model.Vendedor)">
-            <summary>
-            Cria um novo vendedor no sistema
-            </summary>
-            <param name="vendedor"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Nava.Api.Controllers.VendedorController.Update(Nava.Api.Model.Vendedor)">
-            <summary>
-            Atualiza um vendedor
-            </summary>
-            <param name="vendedor"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Nava.Api.Controllers.VendedorController.Remove(System.Int64)">
-            <summary>
-            Remove um vendedor pelo Id
-            </summary>
-            <param name="Id"></param>
-            <returns></returns>
         </member>
         <member name="T:Nava.Api.DatabaseContext">
             <summary>
@@ -193,9 +165,14 @@
             Status atual da venda
             </summary>
         </member>
-        <member name="P:Nava.Api.Model.Venda.Vendedor">
+        <member name="P:Nava.Api.Model.Venda.VendedorId">
             <summary>
             Vendedor que está realizando a Venda
+            </summary>
+        </member>
+        <member name="P:Nava.Api.Model.Venda.Vendedor">
+            <summary>
+            Vendedor associado a venda
             </summary>
         </member>
         <member name="P:Nava.Api.Model.Venda.Items">
@@ -221,6 +198,16 @@
         <member name="P:Nava.Api.Model.VendaItem.Quantidade">
             <summary>
             Quantidade de produto(s) vendido(s)
+            </summary>
+        </member>
+        <member name="P:Nava.Api.Model.VendaItem.VendaId">
+            <summary>
+            Id da Venda
+            </summary>
+        </member>
+        <member name="P:Nava.Api.Model.VendaItem.Venda">
+            <summary>
+            Venda em que o item está participando
             </summary>
         </member>
         <member name="T:Nava.Api.Model.Vendedor">

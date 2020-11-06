@@ -1,7 +1,8 @@
 ﻿using Nava.Api.Enums;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Nava.Api.Model
 {
@@ -14,7 +15,7 @@ namespace Nava.Api.Model
         /// Id da venda
         /// </summary>
         [Key]
-        public long Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Data de realização da venda
@@ -34,11 +35,17 @@ namespace Nava.Api.Model
         /// <summary>
         /// Vendedor que está realizando a Venda
         /// </summary>
+        public int VendedorId { get; set; }
+
+        /// <summary>
+        /// Vendedor associado a venda
+        /// </summary>
+        [ForeignKey("VendedorId")]
         public Vendedor Vendedor { get; set; }
 
         /// <summary>
         /// Itens da venda
         /// </summary>
-        public IQueryable<VendaItem> Items { get; set; }
+        public List<VendaItem> Items { get; set; }
     }
 }

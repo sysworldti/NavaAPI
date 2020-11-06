@@ -21,7 +21,11 @@ namespace Nava.Api
         /// OnModelCreating
         /// </summary>
         /// <param name="modelBuilder"></param>
-        protected override void OnModelCreating(ModelBuilder modelBuilder) { }
+        protected override void OnModelCreating(ModelBuilder modelBuilder) 
+        {
+            modelBuilder.Entity<Venda>().HasOne(p => p.Vendedor);
+            modelBuilder.Entity<Venda>().HasMany(p => p.Items);
+        }
 
         /// <summary>
         /// DbSet de Vendas

@@ -11,7 +11,7 @@ namespace Nava.Api.Model
         /// Identificador
         /// </summary>
         [Key]
-        public long Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Nome do Vendedor
