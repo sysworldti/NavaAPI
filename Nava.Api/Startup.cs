@@ -32,6 +32,8 @@ namespace Nava.Api
         /// </summary>
         public IConfiguration Configuration { get; }
 
+        private const string POLICY_NAVA = "NAVA_CORS";
+
         /// <summary>
         /// ConfigureServices
         /// </summary>
@@ -44,6 +46,16 @@ namespace Nava.Api
                 .AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(POLICY_NAVA, policy =>
+                {
+                    policy.AllowAnyOrigin();
+                    policy.AllowAnyMethod();
+                    policy.AllowAnyHeader();
+                });
+            });
 
             services.AddSwaggerGen(c =>
             {
@@ -93,6 +105,8 @@ namespace Nava.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(POLICY_NAVA);
 
             app.UseAuthorization();
 
