@@ -56,10 +56,7 @@ namespace Nava.Api.Controllers
         {
             try
             {
-                return Ok(await Task.Factory.StartNew(() =>
-                {
-                    return repository.GetAll();
-                }));
+                return Ok(await repository.GetAll());
             }
             catch (Exception e)
             {

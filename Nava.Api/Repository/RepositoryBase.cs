@@ -14,17 +14,17 @@ namespace Nava.Api.Repository
         where Entity : EntityBase
     {
         private readonly DatabaseContext context;
-        private readonly DbSet<Entity> entities;
+        private readonly DbSet<Entity> dbSet;
 
         /// <summary>
         /// RepositoryBase
         /// </summary>
         /// <param name="context"></param>
-        /// <param name="entities"></param>
-        public RepositoryBase(DatabaseContext context, DbSet<Entity> entities)
+        /// <param name="dbSet"></param>
+        public RepositoryBase(DatabaseContext context, DbSet<Entity> dbSet)
         {
             this.context = context;
-            this.entities = entities;
+            this.dbSet = dbSet;
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace Nava.Api.Repository
         public virtual Task Create(Entity entity)
         {
             DoBeforeCreate(entity);
-            entities.Add(entity);            
+            dbSet.Add(entity);            
             return context.SaveChangesAsync();
         }
 
@@ -51,7 +51,7 @@ namespace Nava.Api.Repository
         /// <returns></returns>
         public virtual Task<Entity> Get(int Id)
         {            
-            return entities.Where(p => p.Id == Id).FirstOrDefaultAsync();
+            return dbSet.Where(p => p.Id == Id).FirstOrDefaultAsync();
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace Nava.Api.Repository
         /// <returns></returns>
         public virtual Task<List<Entity>> GetAll()
         {
-            return entities.ToListAsync();
+            return dbSet.ToListAsync();
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace Nava.Api.Repository
         public virtual Task Remove(Entity entity)
         {
             DoBeforeRemove(entity);
-            entities.Remove(entity);
+            dbSet.Remove(entity);
             return context.SaveChangesAsync();
         }
 

@@ -336,7 +336,7 @@
             RepositoryBase
             </summary>
             <param name="context"></param>
-            <param name="entities"></param>
+            <param name="dbSet"></param>
         </member>
         <member name="M:Nava.Api.Repository.RepositoryBase`1.DoBeforeCreate(`0)">
             <summary>
